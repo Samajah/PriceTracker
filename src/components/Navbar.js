@@ -66,11 +66,12 @@ function Navbar() {
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <Link to='/search-bar'>
+            <Link to='/results'>
               <button class="btn btn-outline-success" type="submit">Search</button>
             </Link>
           </form>
           {button && <Button buttonStyle='btn-outline-success'>SIGN UP</Button>}
+          {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
         </div>
       </nav>
     </>

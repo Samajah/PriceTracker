@@ -5,7 +5,7 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const fetchData = (value) => {
-    fetch ("")
+    fetch ("https://jsonplaceholder.typicode.com/photos")
   }
 
   const handleChange = (value) => {

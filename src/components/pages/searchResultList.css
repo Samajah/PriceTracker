@@ -1,0 +1,30 @@
+/* SearchResultList.css */
+
+.results-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-entry {
+    border: 1px solid #a5a5a5;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .product-entry h3 {
+    margin-bottom: 5px;
+  }
+  
+  .product-entry img {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+  }
+  
+  .product-entry p {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
