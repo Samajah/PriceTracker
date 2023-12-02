@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./searchResultList.css";
 import '../../App.css';
 
@@ -11,11 +11,25 @@ export const UserHome = () => {
         // Add more product entries as needed
     ];
 
-    async function removeItem(el) {
-        const name = el.parentElement.querySelector('.item-name').innerText;
-        await queries.removeItem(name);
-        document.dispatchEvent(refreshEvent);
-    }
+    // const refreshEvent = document.createEvent('Event');
+    // refreshEvent.initEvent('refresh', true, true);
+
+    // async function removeItem(name) {
+    //     if (items[name] == 1) {
+    //       // Only one item left, just delete the item from the cart.
+    //       delete items[name];
+    //     } else {
+    //       // More than one item left, decrement the count.
+    //       items[name] -= 1;
+    //     }
+    //   }
+
+    // async function removeItem(el) {
+    //     const name = el.parentElement.querySelector('.item-name').innerText;
+    //     await queries.removeItem(name);
+    //     document.dispatchEvent(refreshEvent);
+    // }
+
     return (
         <>
             <h1 className="d-flex justify-content-center bg-primary vh-20">My List</h1>
