@@ -11,6 +11,7 @@ import Trends from './components/pages/Trends';
 import Search from './components/pages/SearchBar';
 import Signup from './components/pages/Signup';
 import Login from './components/pages/Login';
+import UserHome from './components/pages/UserHome';
 import SearchResultsList from './components/pages/SearchResultsList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/sign-up" element={<Signup />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/results" element={<SearchResultsList/>}/>
+                <Route path="/user-homepage" element={<UserHome/>}/>
             </Routes>
         </Router>
     );

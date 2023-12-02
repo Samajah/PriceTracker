@@ -1,11 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import "./searchResultList.css";
 import '../../App.css';
 
-export const refreshEvent = document.createEvent('Event');
-refreshEvent.initEvent('refresh', true, true);
-
-export const SearchResultsList = () => {
+export const UserHome = () => {
     // Example array of products
     const products = [
         { id: 1, name: "Product 1", price: "$19.99" },
@@ -14,16 +11,21 @@ export const SearchResultsList = () => {
         // Add more product entries as needed
     ];
 
+    async function removeItem(el) {
+        const name = el.parentElement.querySelector('.item-name').innerText;
+        await queries.removeItem(name);
+        document.dispatchEvent(refreshEvent);
+    }
     return (
         <>
-            <h1 className="d-flex justify-content-center bg-primary vh-20">Search Results</h1>
+            <h1 className="d-flex justify-content-center bg-primary vh-20">My List</h1>
             <body>
                 <div className="results-list">
                     {products.map(product => (
                         <div key={product.id} className="product-entry">
                             <h3>{product.name}</h3>
                             <p>Price: {product.price}</p>
-                            <button className="btn btn-success w-100 rounded-0">Add Item</button>
+                            <button onCLick="removeItem" className="btn btn-success w-100 rounded-0">Remove Item</button>
                         </div>
                     ))}
                 </div>
@@ -32,4 +34,4 @@ export const SearchResultsList = () => {
     );
 };
 
-export default SearchResultsList;
+export default UserHome;
