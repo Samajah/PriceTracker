@@ -39,7 +39,7 @@ export const UserHome = () => {
                         <div key={product.id} className="product-entry">
                             <h3>{product.name}</h3>
                             <p>Price: {product.price}</p>
-                            <button onCLick="removeItem" className="btn btn-success w-100 rounded-0">Remove Item</button>
+                            <button className="btn btn-success w-100 rounded-0">Remove Item</button>
                         </div>
                     ))}
                 </div>

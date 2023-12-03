@@ -30,7 +30,7 @@ function Navbar() {
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             PriceTracker
-            <i class='fab fa-typo3' />
+            <i className='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -64,10 +64,10 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <form className="d-flex" role="search">
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <Link to='/results'>
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button className="btn btn-outline-success" type="submit">Search</button>
             </Link>
           </form>
           {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
