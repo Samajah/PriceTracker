@@ -1,75 +1,49 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../../App.css';
-import Validation from './SignupValidation';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function Signup() {
-    const [values, setValues] = useState({
-        email: '',
-        password: '',
-        retypedPassword: ''
-    })
-    // const navigate = useNavigate();
-    const handleInput = (event) => {
-        setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
-    }
-    const [errors, setErrors] = useState({
+  // const [values, setValues] = useState({
+  //   email: '',
+  //   password: '',
+  //   retypedPassword: ''
+  // })
 
-    })
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     setErrors(Validation(values));
-    //     if (errors.email === "" && errors.password === "" && errors.retypedPassword === "") {
-    //         axios.post('http://localhost:3000/sign-up', {values})
-    //         .then(res => console.log(res))
-    //         .catch(err => console.log(err));
-    //     }
-    // }
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
+    axios.post('http://localhost:8080/sign-up', { email: email, password: password })
+      .then((data) => {
         event.preventDefault();
-        axios.post('http://localhost:3000/sign-up', {
-            Email: values.email,
-            Password: values.password})
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }
+        console.log(data)
+        setEmail('')
+        setPassword('')
+      })
+  }
 
-    return (
-        <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-            <div>
-                <form action="" onSubmit={handleSubmit}>
-                    <h2>Sign Up</h2>
-                    <div className='mb-3'>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" placeholder='Enter Email' name='email'
-                            onChange={handleInput} className='form-control rounded-0' />
-                        <span>{errors.email && <span className="text-issue">{errors.email}</span>}</span>
-                    </div>
-                    <div className='mb-3'>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" placeholder='Enter Password' name='password'
-                            onChange={handleInput} className='form-control rounded-0' />
-                        <span>{errors.password && <span className="text-issue">{errors.password}</span>}</span>
-                    </div>
-                    <div className='mb-3'>
-                        <label htmlFor="retypePassword">Re-Typed Password</label>
-                        <input type="password" placeholder='Enter Retyped Password' name='retypedPassword'
-                            onChange={handleInput} className='form-control rounded-0' />
-                        <span>{errors.retypedPassword && <span className="text-issue">{errors.retypedPassword}</span>}</span>
-                    </div>
-
-                    <button type="submit" className='btn btn-success w-100 rounded-0'>Sign Up</button>
-                    <p>By signing up, you are agreeing to PriceTracker's terms and policies</p>
-                    </form>
-
-                    <Link to='/login' >
-                        <button to="/login" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Log In</button>
-                    </Link>
-            </div>
+  return (
+    <div>
+      <form className='mx-auto border-2 p-9 md:p-12 w-72 md:w-96 border-aquamarine-400 mt-36 h-84' onSubmit={handleSubmit}>
+        <h3 className='pb-6 text-2xl text-center text-white'>Sign Up</h3>
+        <label className='block mb-1 text-xl text-aquamarine-400' htmlFor="email">Email</label>
+        <input className='w-full h-8 p-1 mb-6 focus:outline-none' id="email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <label className='block mb-1 text-xl text-aquamarine-400' htmlFor="password">Password</label>
+        <input className='w-full h-8 p-1 mb-6 focus:outline-none' id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label className='block mb-1 text-xl text-aquamarine-400' htmlFor="retypePassword">Retyped Password</label>
+        <input className='w-full h-8 p-1 mb-6 focus:outline-none' id="password" type="password" />
+        <div>
+          <button className='px-3 py-1 rounded-sm bg-aquamarine-400' type="submit">Sign Up</button>
+          <p>
+            By signing up, you are agreeing to PriceTracker's terms and policies
+          </p>
+          <Link to="/login">
+            <button className='px-3 py-1 rounded-sm bg-aquamarine-400' to="/login">Log In</button>
+          </Link>
         </div>
-    )
+      </form>
+    </div>
+  );
 }
 
 export default Signup;
