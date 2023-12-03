@@ -11,25 +11,6 @@ export const UserHome = () => {
         // Add more product entries as needed
     ];
 
-    // const refreshEvent = document.createEvent('Event');
-    // refreshEvent.initEvent('refresh', true, true);
-
-    // async function removeItem(name) {
-    //     if (items[name] == 1) {
-    //       // Only one item left, just delete the item from the cart.
-    //       delete items[name];
-    //     } else {
-    //       // More than one item left, decrement the count.
-    //       items[name] -= 1;
-    //     }
-    //   }
-
-    // async function removeItem(el) {
-    //     const name = el.parentElement.querySelector('.item-name').innerText;
-    //     await queries.removeItem(name);
-    //     document.dispatchEvent(refreshEvent);
-    // }
-
     return (
         <>
             <h1 className="d-flex justify-content-center bg-primary vh-20">My List</h1>
@@ -39,7 +20,7 @@ export const UserHome = () => {
                         <div key={product.id} className="product-entry">
                             <h3>{product.name}</h3>
                             <p>Price: {product.price}</p>
-                            <button onCLick="removeItem" className="btn btn-success w-100 rounded-0">Remove Item</button>
+                            <button className="btn btn-success w-100 rounded-0">Remove Item</button>
                         </div>
                     ))}
                 </div>

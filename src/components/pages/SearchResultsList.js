@@ -2,9 +2,6 @@ import React from "react";
 import "./searchResultList.css";
 import '../../App.css';
 
-export const refreshEvent = document.createEvent('Event');
-refreshEvent.initEvent('refresh', true, true);
-
 export const SearchResultsList = () => {
     // Example array of products
     const products = [
@@ -23,7 +20,7 @@ export const SearchResultsList = () => {
                         <div key={product.id} className="product-entry">
                             <h3>{product.name}</h3>
                             <p>Price: {product.price}</p>
-                            <button className="btn btn-success w-100 rounded-0">Add Item</button>
+                            <button className="btn btn-success w-100 rounded-0" type="submit">Add Item</button>
                         </div>
                     ))}
                 </div>
