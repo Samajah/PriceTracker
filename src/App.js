@@ -12,6 +12,7 @@ import Signup from './components/pages/Signup';
 import Login from './components/pages/Login';
 import UserHome from './components/pages/UserHome';
 import SearchResultsList from './components/pages/SearchResultsList';
+import PaymentMethod from './components/pages/PaymentMethod';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
  
@@ -20,13 +21,14 @@ function App() {
         <Router>
             <Navbar />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<UserHome />} />
                 <Route path="/trends" element={<Trends />} />
                 <Route path="/Search" element={<Search />}/>
                 <Route path="/sign-up" element={<Signup />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/results" element={<SearchResultsList/>}/>
                 <Route path="/user-homepage" element={<UserHome/>}/>
+                <Route path="payment" element={<PaymentMethod/>}/>
             </Routes>
         </Router>
     );

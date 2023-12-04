@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./searchResultList.css";
 import '../../App.css';
 
@@ -23,6 +24,11 @@ export const UserHome = () => {
                             <button className="btn btn-success w-100 rounded-0">Remove Item</button>
                         </div>
                     ))}
+                    <div>
+                    <Link to='/payment'>
+                    <button to="/payment" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Add Payment Method</button>
+                    </Link>  
+                    </div>
                 </div>
             </body>
         </>

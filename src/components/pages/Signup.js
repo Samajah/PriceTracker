@@ -18,16 +18,6 @@ function Signup() {
 
     })
 
-    //   const handleSubmit = (event) => {
-    //     axios.post('http://localhost:8080/sign-up', { email: email, password: password })
-    //       .then((data) => {
-    //         event.preventDefault();
-    //         console.log(data)
-    //         setEmail('')
-    //         setPassword('')
-    //       })
-    //   }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(email, password, retypedPassword));

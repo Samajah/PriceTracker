@@ -1,32 +1,31 @@
-import React from "react";
-import "./searchResultList.css";
-import '../../App.css';
+import React, { useState, useEffect } from 'react';
+import './searchResultList.css';
+import DiamondRingsData from './DiamondRings.json'; // Import the JSON file directly
 
-export const SearchResultsList = () => {
-    // Example array of products
-    const products = [
-        { id: 1, name: "Product 1", price: "$19.99" },
-        { id: 2, name: "Product 2", price: "$29.99" },
-        { id: 3, name: "Product 3", price: "$39.99" },
-        // Add more product entries as needed
-    ];
+const SearchResultsList = () => {
+  const [products, setProducts] = useState([]);
 
-    return (
-        <>
-            <h1 className="d-flex justify-content-center bg-primary vh-20">Search Results</h1>
-            <body>
-                <div className="results-list">
-                    {products.map(product => (
-                        <div key={product.id} className="product-entry">
-                            <h3>{product.name}</h3>
-                            <p>Price: {product.price}</p>
-                            <button className="btn btn-success w-100 rounded-0" type="submit">Add Item</button>
-                        </div>
-                    ))}
-                </div>
-            </body>
-        </>
-    );
+  useEffect(() => {
+    // Set products using the imported JSON data
+    setProducts(DiamondRingsData);
+  }, []);
+
+  return (
+    <div className="results-list">
+      {products.map((product, index) => (
+        <div key={index} className="product-entry">
+          <img src={product.thumbnailImage} alt={product.title} />
+          <h3>{product.title}</h3>
+          <p>{`Stars: ${product.stars} (${product.reviewsCount} reviews)`}</p>
+          <p>{`Brand: ${product.brand}`}</p>
+          <p>{`Category: ${product.breadCrumbs}`}</p>
+          <a href={product.url} target="_blank" rel="noopener noreferrer">
+            View on Amazon
+          </a>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default SearchResultsList;

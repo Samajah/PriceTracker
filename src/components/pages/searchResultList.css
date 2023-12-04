@@ -1,30 +1,46 @@
-/* SearchResultList.css */
+/* searchResultList.css */
 
 .results-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .product-entry {
-    border: 1px solid #a5a5a5;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
-  }
-  
-  .product-entry h3 {
-    margin-bottom: 5px;
-  }
-  
-  .product-entry img {
-    width: 100px; 
-    height: 100px; 
-    object-fit: cover; 
-  }
-  
-  .product-entry p {
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; /* Align items with equal spacing */
+}
+
+.product-entry {
+  border: 1px solid #a5a5a5;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+  flex: 0 1 calc(25% - 20px); /* Each product takes up 25% of the container width with spacing */
+}
+
+.product-entry h3 {
+  margin-bottom: 5px;
+  font-size: 16px; /* Larger font size for the title */
+}
+
+.product-entry img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Make the image circular */
+}
+
+.product-entry p {
+  margin: 8px 0;
+}
+
+.product-entry a {
+  color: #007bff; /* Blue link color */
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.product-entry a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}
