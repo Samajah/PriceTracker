@@ -1,8 +1,16 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Validation from './LoginValidation'
 
 function Login() {
+
+    const navigate = useNavigate();
+
+    const navigateToHome = () => {
+      // 👇️ navigate to /contacts
+      navigate('/user-homepage');
+    };
+
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -37,7 +45,7 @@ function Login() {
                         <span>{errors.password && <span className="text-issue">{errors.password}</span>}</span>
                     </div>
                     {/* <Link to='user-homepage'> */}
-                    <button type='submit' className='btn btn-success w-100 rounded-0'>Log In</button>
+                    <button type='submit' className='btn btn-success w-100 rounded-0' onClick={navigateToHome}>Log In</button>
                     {/* </Link> */}
                     <p></p>
                     </form>
