@@ -17,7 +17,7 @@ function PaymentMethod() {
         event.preventDefault();
         setErrors(Validation(cardNo, expDate, CVV));
         if (errors.cardNo === "" && errors.expDate === "" && errors.CVV === "") {
-            axios.post('http://localhost:8080/sign-up', { cardNo: cardNo, expDate: expDate, CVV: CVV })
+            axios.post('http://localhost:8080/payment', { cardNo: cardNo, expDate: expDate, CVV: CVV })
                 .then((data) => {
                     console.log(data)
                     setCardNo('')
@@ -35,7 +35,7 @@ function PaymentMethod() {
                     <h3 className='pb-6 text-2xl text-center text-black'>Add Payment Method</h3>
                     <div className='mb-3'>
                         <label htmlFor="cardNo">Card Number</label>
-                        <input id="cardNo" type="password" placeholder="Enter Card Number" value={cardNo}
+                        <input id="cardNo" type="text" placeholder="Enter Card Number" value={cardNo}
                             onChange={(e) => setCardNo(e.target.value)} />
                         <span>{errors.cardNo && <span className="text-issue">{errors.cardNo}</span>}</span>
                     </div>

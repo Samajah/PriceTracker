@@ -61,7 +61,8 @@ app.post('/payment', (req, res) => {
     const cardNo = req.body.cardNo;
     const expDate = req.body.expDate;
     const CVV = req.body.CVV;
-    db.query("INSERT INTO Payment_Method (CardNumber, Expiration_Date, CVV) VALUES (?, ?, ?)", [cardNo,expDate, CVV], (err, result) => {
+    const userID = 9;
+    db.query("INSERT INTO Payment_Method (CardNumber, Expiration_Date, CVV, UserID) VALUES (?, ?, ?, ?)", [cardNo, expDate, CVV, userID], (err, result) => {
         if (err) {
             console.log(err)
         } else {
